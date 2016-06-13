@@ -11,6 +11,9 @@ var server = http.createServer(function (request, response) {
     external_request_url = prefix + external_request_url;
   }
 
+  response.setHeader("Access-Control-Allow-Origin", "*");
+  response.setHeader("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
   //  make external request and pipe to response
   http.get(external_request_url, function (external_response) {
 
